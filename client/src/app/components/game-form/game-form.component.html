@@ -1,5 +1,5 @@
 <div class="ui container">
-  <h2 class="ui header">ADD GAME</h2>
+  <h2 class="ui header">{{ edit ? 'EDIT GAME' : 'ADD GAME'}}</h2>
   <div class="ui two column centered grid">
     <div class="column">
       <div class="ui form">
@@ -31,7 +31,7 @@
           class="ui button blue fluid"
           (click)="edit ? updateGame() : saveNewGame()"
         >
-          Submit
+          {{ edit ? 'EDIT': 'SAVE' }}
         </button>
       </div>
     </div>
