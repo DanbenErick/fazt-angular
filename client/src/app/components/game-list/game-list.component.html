@@ -1,0 +1,29 @@
+<div class="ui container centered">
+  <h2 class="ui header">GAMES</h2>
+  <div class="ui grid">
+    <div class="four wide column" *ngFor="let game of games;">
+      <div class="ui card">
+        <div class="image">
+          <img [src]="game.image">
+        </div>
+        <div class="content">
+          <span class="header">{{ game.title }}</span>
+          <div class="description">
+            {{ game.description }}
+          </div>
+        </div>
+        <div class="ui two bottom attached buttons">
+          <button class="ui button blue" (click)="editGame(game.id)">EDIT</button>
+          <button class="ui button red" (click)="deleteGame(game.id)">DELETE</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style scoped>
+  .header {
+    padding-top: 10px;
+    text-align: center;
+  }
+</style>
