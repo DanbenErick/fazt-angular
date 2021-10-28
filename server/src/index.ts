@@ -8,7 +8,7 @@ import gamesRoutes from "./routes/gamesRoutes";
 class Server {
   public app: Application;
 
-  constructor() {
+  public constructor() {
     this.app = express();
     this.config();
     this.routes();
@@ -19,7 +19,8 @@ class Server {
     this.app.use(morgan("dev"));
     this.app.use(cors());
     this.app.use(express.json());
-    // Sirve para pode recibir datos desde un formulario: jade, html, etc
+    
+    // Dar soporte a formularios[FormData] 
     this.app.use(express.urlencoded({ extended: false }));
   }
 
@@ -28,9 +29,9 @@ class Server {
     this.app.use("/api/games", gamesRoutes);
   }
 
-  start(): void {
+  public start(): void {
     this.app.listen(this.app.get("port"), () => {
-      console.log("Servidor en puerto: ", this.app.get("port"));
+      console.log("Server running in the port: : ", this.app.get("port"));
     });
   }
 }

@@ -1,14 +1,13 @@
 import { Router } from "express";
-
 import gamesController from "../controllers/gamesController";
 class GamesRoutes {
   public router: Router = Router();
 
-  constructor() {
+  public constructor() {
     this.config();
   }
 
-  config(): void {
+  public config(): void {
     this.router.get("/", gamesController.list);
     this.router.get("/:id", gamesController.getOne);
     this.router.post("/", gamesController.create);

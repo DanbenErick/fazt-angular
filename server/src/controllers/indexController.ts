@@ -1,11 +1,8 @@
 import { Request, Response } from "express";
-import pool from "../database";
-import db from "../database";
 
 class IndexController {
   public index(req: Request, res: Response) {
-    pool.query("DESCRIBE games");
-    res.json("games");
+    res.json({ message: 'Server running' }).sendStatus(200);
   }
 }
 

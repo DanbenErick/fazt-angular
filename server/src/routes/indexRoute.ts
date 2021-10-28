@@ -5,11 +5,11 @@ import { indexController } from "../controllers/indexController";
 class IndexRoutes {
   public router: Router = Router();
 
-  constructor() {
+  public constructor() {
     this.config();
   }
 
-  config(): void {
+  public config(): void {
     this.router.get("/", indexController.index);
   }
 }
