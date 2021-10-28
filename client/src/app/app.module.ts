@@ -10,24 +10,15 @@ import { GameListComponent } from './components/game-list/game-list.component';
 import { GamesService } from './services/games.service';
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     GameFormComponent,
-    GameListComponent
+    GameListComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    FormsModule,
-  ],
-  providers: [
-    GamesService
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [GamesService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

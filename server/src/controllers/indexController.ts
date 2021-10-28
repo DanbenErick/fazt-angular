@@ -1,14 +1,12 @@
-import { Request, Response } from 'express'
-import pool from '../database'
-import db from '../database'
-
+import { Request, Response } from "express";
+import pool from "../database";
+import db from "../database";
 
 class IndexController {
-
-   public index(req: Request, res: Response) {
-    pool.query('DESCRIBE games')
-    res.json('games')
-   }
+  public index(req: Request, res: Response) {
+    pool.query("DESCRIBE games");
+    res.json("games");
+  }
 }
 
-export const indexController = new IndexController
+export const indexController = new IndexController();

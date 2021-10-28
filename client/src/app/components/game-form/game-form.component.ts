@@ -19,41 +19,41 @@ export class GameFormComponent implements OnInit {
     created_at: new Date(),
   };
 
-  public edit: boolean = false
+  public edit: boolean = false;
 
-  constructor(private gamesService: GamesService, private router: Router, private activedRoute: ActivatedRoute) {}
+  constructor(
+    private gamesService: GamesService,
+    private router: Router,
+    private activedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    const params = this.activedRoute.snapshot.params
-    if(params.id) {
-      this.gamesService.getGame(params.id)
-      .subscribe(
-        res => {
+    const params = this.activedRoute.snapshot.params;
+    if (params.id) {
+      this.gamesService.getGame(params.id).subscribe(
+        (res) => {
           console.log(res);
-          this.game = res
-          this.edit = true
+          this.game = res;
+          this.edit = true;
         },
-        err => {
+        (err) => {
           console.log(err);
-
         }
-      )
+      );
     }
   }
 
   public updateGame(): void {
-    delete this.game.created_at
-    this.gamesService.updateGame(this.game.id || 0, this.game)
-      .subscribe(
-        resp => {
-          console.log(resp);
-          this.router.navigate(['/games'])
-        },
-        err => {
-          console.log(err);
-
-        }
-      )
+    delete this.game.created_at;
+    this.gamesService.updateGame(this.game.id || 0, this.game).subscribe(
+      (resp) => {
+        console.log(resp);
+        this.router.navigate(['/games']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
   }
 
   public saveNewGame(): void {
@@ -62,10 +62,10 @@ export class GameFormComponent implements OnInit {
 
     this.gamesService.saveGame(this.game).subscribe(
       (res) => {
-        this.game.title = ''
-        this.game.description = ''
-        this.game.image = ''
-        this.router.navigate(['/games'])
+        this.game.title = '';
+        this.game.description = '';
+        this.game.image = '';
+        this.router.navigate(['/games']);
         console.log(res);
       },
       (err) => {

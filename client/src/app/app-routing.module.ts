@@ -7,24 +7,24 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: '/games',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'games',
-    component: GameListComponent
+    component: GameListComponent,
   },
   {
     path: 'games/add',
-    component: GameFormComponent
+    component: GameFormComponent,
   },
   {
     path: 'games/edit/:id',
-    component: GameFormComponent
-  }
+    component: GameFormComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

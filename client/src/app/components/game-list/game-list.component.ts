@@ -11,39 +11,37 @@ import { GamesService } from 'src/app/services/games.service';
 export class GameListComponent implements OnInit {
   constructor(private gamesService: GamesService, private router: Router) {}
 
-  public games: Game[] = []
+  public games: Game[] = [];
 
   public getGames(): void {
     this.gamesService.getGames().subscribe(
       (res: any) => {
-        this.games = res
+        this.games = res;
       },
       (err) => {
         console.log(err);
       }
-    )
+    );
   }
 
   ngOnInit(): void {
-    this.getGames()
+    this.getGames();
   }
 
   public editGame(id: any) {
-    this.router.navigate(['games/edit/' + id])
+    this.router.navigate(['games/edit/' + id]);
     console.log(id);
-
   }
 
   public deleteGame(id: any) {
     this.gamesService.deleteGame(id).subscribe(
-      res => {
-        this.getGames()
+      (res) => {
+        this.getGames();
         console.log(res);
       },
-      err => {
+      (err) => {
         console.log(err);
-
       }
-    )
+    );
   }
 }

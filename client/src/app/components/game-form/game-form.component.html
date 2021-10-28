@@ -29,7 +29,10 @@
             [(ngModel)]="game.image"
           />
         </div>
-        <button class="ui button blue fluid" (click)="edit ? updateGame() : saveNewGame()">
+        <button
+          class="ui button blue fluid"
+          (click)="edit ? updateGame() : saveNewGame()"
+        >
           Submit
         </button>
       </div>
