@@ -6,10 +6,9 @@ import { GamesService } from 'src/app/services/games.service';
 @Component({
   selector: 'app-game-list',
   templateUrl: './game-list.component.html',
-  styles: [],
 })
 export class GameListComponent implements OnInit {
-  constructor(private gamesService: GamesService, private router: Router) {}
+  public constructor(private gamesService: GamesService, private router: Router) {}
 
   public games: Game[] = [];
 
@@ -24,7 +23,7 @@ export class GameListComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getGames();
   }
 

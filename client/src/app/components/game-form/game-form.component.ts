@@ -6,11 +6,8 @@ import { GamesService } from 'src/app/services/games.service';
 @Component({
   selector: 'app-game-form',
   templateUrl: './game-form.component.html',
-  styles: [],
 })
 export class GameFormComponent implements OnInit {
-  // @HostBinding('class') classes = 'row';
-
   public game: Game = {
     id: 0,
     title: '',
@@ -21,13 +18,13 @@ export class GameFormComponent implements OnInit {
 
   public edit: boolean = false;
 
-  constructor(
+  public constructor(
     private gamesService: GamesService,
     private router: Router,
     private activedRoute: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     const params = this.activedRoute.snapshot.params;
     if (params.id) {
       this.gamesService.getGame(params.id).subscribe(
